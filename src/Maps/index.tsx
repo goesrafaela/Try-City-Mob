@@ -83,19 +83,13 @@ const TelaMapa: React.FC <{ navigation: any }> = ({ navigation }) => {
         loadingEnabled={true}
       />
 
-      {/* Floating Buttons */}
-      <View style={styles.floatingButtons}>
-        <TouchableOpacity style={styles.menuButton} onPress={() => navigation.openDrawer()}>
-          <Ionicons name="menu" size={24} color="white" />
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.moneyButton}>
-          <Text style={styles.moneyText}>R$ 0,00</Text>
-        </TouchableOpacity>
-      </View>
+      {/* Centralizado no topo */}
+      <TouchableOpacity style={styles.moneyButton}>
+        <Text style={styles.moneyText}>R$ 0,00</Text>
+      </TouchableOpacity>
 
-      
+      {/* Bottom Info */}
       <View style={styles.bottomInfo}>
-        
         <TouchableOpacity 
           style={styles.startButton} 
           onPress={handleStartPress} 
@@ -118,23 +112,14 @@ const TelaMapa: React.FC <{ navigation: any }> = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: { flex: 1 },
   map: { flex: 1 },
-  floatingButtons: {
-    position: 'absolute',
-    top: 40,
-    left: 20,
-    right: 20,
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-  },
-  menuButton: {
-    backgroundColor: '#6961FE',
-    padding: 10,
-    borderRadius: 25,
-  },
   moneyButton: {
     backgroundColor: '#6961FE',
-    padding: 10,
+    padding: 20,
     borderRadius: 25,
+    position: 'absolute', // Faz o botão flutuar na tela
+    top: 20, // Distância do topo da tela
+    left: '50%', // Centraliza horizontalmente
+    transform: [{ translateX: -50 }], // Ajuste para garantir centralização
   },
   moneyText: { color: 'white' },
   bottomInfo: {
